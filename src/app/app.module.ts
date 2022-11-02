@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EstruturaModule } from './estrutura/estrutura.module';
 import { HttpErrorInterceptor } from './utils/interceptador/interceptador';
 import { MensagensModule } from './utils/mensagens/mensagens.module';
 
@@ -17,7 +18,8 @@ import { MensagensModule } from './utils/mensagens/mensagens.module';
     HttpClientModule,
     MensagensModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    EstruturaModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
