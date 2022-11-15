@@ -4,7 +4,7 @@ body, html{
 }
 
 .bg{
-  background-image: url("./Assets/Imagens/fundo.png");
+  background-image: url("./assets/Imagens/fundo.png");
   background-repeat: repeat-y;
   background-attachment: scroll;
   background-size: contain;
