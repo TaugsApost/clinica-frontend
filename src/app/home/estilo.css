@@ -1,0 +1,92 @@
+body, html{
+	height: 125%;
+	margin: 0;
+}
+
+.bg{
+  background-image: url("fundo.png");
+  background-repeat: repeat-y;
+  background-attachment: scroll;
+  background-size: contain;
+}
+
+.rectangle {
+  height: 900px;
+  width: 700px;
+  margin: auto;
+  background-color: white;
+  position: absolute;
+  top: 400px;
+  left: 30%;
+  justify-content: center;
+}
+
+img {
+  display: block;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+h1{
+	position: absolute;
+	width: 511px;
+	height: 142px;
+	left: 110px;
+	top: 10px;
+
+	font-family: 'Iceberg';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 58px;
+	line-height: 71px;
+	text-align: center;
+
+	color: #000000;
+}
+
+h3{	
+	font-family: 'Iceberg';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 49px;
+
+	text-align: left;
+
+	color: #000000;
+}
+
+.descricao{
+	position: absolute;
+	width: 148px;
+	height: 49px;
+	left: 60px;
+	top: 200px;
+}
+
+.missao{
+	position: absolute;
+	width: 148px;
+	height: 49px;
+	left: 60px;
+	top: 400px;
+}
+
+.valores{
+	position: absolute;
+	width: 148px;
+	height: 49px;
+	left: 60px;
+	top: 600px;
+}
+
+
+
+
+
+
+
+
+
