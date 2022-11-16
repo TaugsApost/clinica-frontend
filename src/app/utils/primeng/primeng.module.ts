@@ -30,10 +30,12 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { SliderModule } from 'primeng/slider';
 import { InplaceModule } from 'primeng/inplace';
+import { MegaMenuModule } from 'primeng/megamenu';
 
 
 @NgModule({
   exports: [
+    MegaMenuModule,
     InplaceModule,
     SliderModule,
     InputNumberModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MegaMenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-cabecalho',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabecalhoComponent implements OnInit {
 
+  item: MegaMenuItem[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+    this.item = [
+      {
+        label: 'Teste'
+      },
+      {
+        label: 'Teste'
+      },
+      {
+        label: 'Teste'
+      },
+      {
+        label: 'Teste'
+      },
+      {
+        label: 'Teste'
+      },
+
+    ];
   }
 
 }
