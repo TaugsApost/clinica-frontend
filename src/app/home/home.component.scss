@@ -15,13 +15,10 @@
     justify-content: center;
 }
 
-img {
-    display: block;
-    width: 25%;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
+img.logo {
+    width: 5%;
 }
+
 
 h1 {
     font-family: 'Iceberg';
@@ -65,4 +62,25 @@ h3 {
     height: 49px;
     left: 60px;
     top: 600px;
+}
+
+.sitacao {
+    font-family: "Brush Script MT", "Lucida Handwriting", Cursive;
+    font-size: 30px;
+    color: black;
+}
+
+.cards {
+    text-align: center;
+
+    span.titulo {
+        font-family: "Garamond";
+        font-size: 20px;
+        text-shadow: 1px 1px var(--surface-300);
+    }
+
+    span,
+    p {
+        font-size: 12px;
+    }
 }

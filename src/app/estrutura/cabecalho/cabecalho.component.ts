@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MegaMenuItem } from 'primeng/api';
+import { MegaMenuItem, MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-cabecalho',
@@ -8,28 +8,44 @@ import { MegaMenuItem } from 'primeng/api';
 })
 export class CabecalhoComponent implements OnInit {
 
-  item: MegaMenuItem[] = [];
+  item: MenuItem[] = [];
+  user: MenuItem[] = []
 
   constructor() { }
 
   ngOnInit(): void {
     this.item = [
       {
-        label: 'Teste'
+        label: 'Home',
+        icon: 'pi pi-home'
       },
       {
-        label: 'Teste'
+        label: 'Galeria',
+        icon: 'pi pi-image'
       },
       {
-        label: 'Teste'
+        label: 'Cadastro',
+        icon: 'pi pi-pencil',
+        items: [
+          {
+            label: 'Novo Endereço',
+            icon: 'pi pi-plus-circle'
+          }
+        ]
       },
       {
-        label: 'Teste'
-      },
-      {
-        label: 'Teste'
-      },
-
+        label: 'Agendamento',
+        icon: 'pi pi-book',
+        items: [
+          {
+            label: 'Nova Consulta',
+            icon: 'pi pi-plus-circle'
+          }
+        ]
+      }
+    ];
+    this.user = [
+      { label: '', icon: 'pi pi-user', items: [{ label: 'Login' }] }
     ];
   }
 
