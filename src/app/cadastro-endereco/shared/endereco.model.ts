@@ -1,5 +1,5 @@
 export class Endereco {
-    CEP = '';
+    cep = '';
     logradouro = '';
     bairro = '';
     cidade = '';

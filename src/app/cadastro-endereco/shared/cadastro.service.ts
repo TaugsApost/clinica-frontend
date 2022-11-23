@@ -10,10 +10,7 @@ import { Endereco, EnderecoFilter } from './endereco.model';
 export class CadastroService extends BaseService<EnderecoFilter, Endereco> {
 
   constructor(private _http: HttpClient) {
-    super('funcionario', _http);
+    super('baseEndereco', _http);
   }
 
-  cadastrar(endereco: Endereco): Observable<any> {
-    return this._http.post(this.url + '/cadastrar', endereco);
-  }
 }

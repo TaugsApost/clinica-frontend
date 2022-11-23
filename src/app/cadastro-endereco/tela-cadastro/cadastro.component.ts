@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { StorageService } from 'src/app/estrutura/auth/shared/storege.service';
+import { BaseEditComponent } from 'src/app/utils/classes-bases/editar.component';
 import { MensagensService } from 'src/app/utils/mensagens/mensagens.service';
 import { CadastroService } from '../shared/cadastro.service';
 import { Endereco } from '../shared/endereco.model';
@@ -11,14 +12,15 @@ import { Endereco } from '../shared/endereco.model';
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss']
 })
-export class CadastroComponent implements OnInit {
+export class CadastroComponent extends BaseEditComponent<Endereco, Endereco> implements OnInit {
 
-  formulario: FormGroup;
+  //formulario: FormGroup;
 
-  constructor(private msgService: MensagensService, private service: CadastroService, private router: Router, private storegeService: StorageService) {
+  constructor(service: CadastroService, activatedRoute: ActivatedRoute, _router: Router, msgService: MensagensService) {
+    super(service, activatedRoute, _router, 'cadastro', msgService);
     this.formulario = new FormGroup(
       {
-        CPE: new FormControl('', Validators.required),
+        cep: new FormControl('', Validators.required),
         logradouro: new FormControl('', Validators.required),
         bairro: new FormControl('', Validators.required),
         cidade: new FormControl('', Validators.required),
@@ -33,10 +35,9 @@ export class CadastroComponent implements OnInit {
   cadastrar() {
     if (this.formulario.valid) {
       let endereco: Endereco = this.formulario.getRawValue();
-      this.service.cadastrar(endereco).subscribe(
+      this.service.salvar(endereco).subscribe(
         data => {
           this.msgService.mostrarMensagem('Sucesso', "Cadastro efetivado!")
-          this.storegeService.saveUser(data);
           this.router.navigate(['home']);
         }, error => {
           this.msgService.mostrarMensagem('Erro', 'Endereco ou senha incorretos')
