@@ -31,10 +31,14 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { SliderModule } from 'primeng/slider';
 import { InplaceModule } from 'primeng/inplace';
 import { MegaMenuModule } from 'primeng/megamenu';
+import { StyleClassModule } from 'primeng/styleclass';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 
 @NgModule({
   exports: [
+    ProgressSpinnerModule,
+    StyleClassModule,
     MegaMenuModule,
     InplaceModule,
     SliderModule,

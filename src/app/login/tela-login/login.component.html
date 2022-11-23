@@ -1,0 +1,44 @@
+<div class="grid flex justify-content-center">
+    <div class="mt-8 ml-8 col-5">
+        <p-card [header]="'Login'"
+            [style]="{'width':'100%'}"
+            styleClass="border-round-xl">
+            <form [formGroup]="formulario">
+                <div class="col-12">
+                    <p-card styleClass="border-round-xl">
+                        <div class="grid col-12 formgrid">
+                            <div class="col-12 mt-3 field">
+                                <span class="p-float-label">
+                                    <input pInputText
+                                        class="p-inputtext"
+                                        type="text"
+                                        formControlName="email">
+                                    <label for="">Email</label>
+                                </span>
+                            </div>
+                            <div class="col-12 pt-1 mt-3 field">
+                                <span class="p-float-label">
+                                    <input pInputText
+                                        class="p-inputtext"
+                                        type="password"
+                                        formControlName="senha">
+                                    <label for="">Senha</label>
+                                </span>
+                            </div>
+                        </div>
+                    </p-card>
+                </div>
+                <div class="col-12 flex justify-content-center mt-1 mb-0">
+                    <div class="col-3 mb-0">
+                        <button pButton
+                            class="p-button-raised p-button-primary p-button-sm"
+                            [style]="{'width':'100%'}"
+                            label="Logar"
+                            (click)="logar()">
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </p-card>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 {
     "comum": {
-        "urlSimulador": "http://localhost:8080/simulador/rest/",
+        "urlSimulador": "http://localhost:8080/clinica/rest/",
         "salvar": "/salvar",
         "editar": "/editar",
         "detalhar": "/detalhar",

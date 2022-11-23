@@ -1,10 +1,89 @@
-<p-menubar [style]="{'height':'5rem'}" styleClass="m-0 p-0 text-black-alpha-90" [model]="item">
+<p-menubar [style]="{'height':'5rem'}"
+    styleClass="m-0 p-0 text-black-alpha-90"
+    [model]="item">
     <ng-template pTemplate="start">
-        <img src="./assets/imagens/logo_.png" alt="Logo" height="50" class="ml-8 mr-8"
+        <img src="./assets/imagens/logo_.png"
+            alt="Logo"
+            height="50"
+            class="ml-8 mr-8"
             [style]="{'margin-right':'700px'}">
     </ng-template>
     <ng-template pTemplate="end">
-        <p-menubar [model]="user" styleClass="border-none">
+        <div *ngIf="!storageService.isLoggin()"
+            class="flex min-h-screen align-items-center justify-content-center mr-2">
+            <div class="relative">
+                <div class="flex align-items-center p-3 cursor-pointer"
+                    pStyleClass="@next"
+                    enterClass="hidden"
+                    enterActiveClass="scalein"
+                    leaveToClass="hidden"
+                    leaveActiveClass="fadeout"
+                    [hideOnOutsideClick]="true">
+                    <span>
+                        <button pButton
+                            pRipple
+                            type="button"
+                            icon="pi pi-user"
+                            class="p-button-secondary p-button-text hover:surface-hover text-black-alpha-90 px-2 mr-6">
+                        </button>
+                    </span>
+                </div>
+                <div class="
+                        absolute
+                        shadow-2
+                        min-w-full
+                        py-1
+                        hidden
+                        surface-section">
+                    <ul pStyleClass="@parent"
+                        leaveToClass="hidden"
+                        leaveActiveClass="fadeout"
+                        class="list-none p-0 m-0">
+                        <li (click)="navegarPara('login')">
+                            <span class="block p-3 no-underline py-2 px-3 
+                            hover:surface-hover transition-all transition-duration-500 
+                            text-black-alpha-90 cursor-pointer"><i class="pi pi-sign-in mr-3"></i> Login</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="storageService.isLoggin()"
+            class="flex min-h-screen align-items-center justify-content-center mr-4">
+            <div class="relative">
+                <div class="flex align-items-center p-3 cursor-pointer"
+                    pStyleClass="@next"
+                    enterClass="hidden"
+                    enterActiveClass="scalein"
+                    leaveToClass="hidden"
+                    leaveActiveClass="fadeout"
+                    [hideOnOutsideClick]="true">
+                    <span class="pr-5"
+                        *ngIf="storageService.isLoggin()">
+                        <i class="transition-all transition-duration-500 hover:shadow-1 hover:surface-hover cursor-pointer p-2 pi pi-user"></i>
+                        {{getNomeUsuario()}}
+                    </span>
+                </div>
+                <div class="absolute shadow-2 min-w-full py-2 hidden  surface-section">
+                    <ul class="list-none p-0 m-0">
+                        <!-- <li>
+                            <label class="block p-3 no-underline py-2 px-3 
+                                                            hover:surface-hover transition-all transition-duration-500 
+                                                            text-black-alpha-90"><i class="pi pi-cog mr-0"></i> Configurações</label>
+                        </li> -->
+                        <li (click)="logout()">
+                            <label class="block p-3 no-underline py-2 px-3 
+                                    hover:surface-hover transition-all transition-duration-500 
+                                    text-black-alpha-90"><i class="pi pi-sign-out mr-3"></i> Sair</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- <p-menubar *ngIf="!storageService.isLoggin()" [model]="user" styleClass="border-none">
         </p-menubar>
+        <span class="pr-5" *ngIf="storageService.isLoggin()"><i
+                class="transition-all transition-duration-500 hover:shadow-4 hover:surface-300 cursor-pointer p-2 pi pi-user"></i>
+            {{getNomeUsuario()}}</span> -->
     </ng-template>
 </p-menubar>

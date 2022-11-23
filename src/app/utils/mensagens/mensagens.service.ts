@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Confirmation, ConfirmationService } from 'primeng/api';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { BaseEditComponent } from '../classes-bases/editar.component';
 import { BasePesquisarComponent } from '../classes-bases/pesquisar.component';
 import { BaseService } from '../classes-bases/service.service';
@@ -24,6 +24,24 @@ export class MensagensService {
           metodo();
         }
       }
+    });
+  }
+
+  mostrarMensagemSimNao(titulo: string, texto: string, icone?: string) {
+    return new Promise<boolean>(resolve => {
+      this.confirmationService.confirm({
+        message: texto,
+        header: titulo,
+        icon: icone,
+        rejectVisible: true,
+        key: 'excluir',
+        accept: () => {
+          resolve(true);
+        },
+        reject: () => {
+          resolve(false);
+        }
+      });
     });
   }
 

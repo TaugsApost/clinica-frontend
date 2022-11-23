@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
+import { MensagensService } from 'src/app/utils/mensagens/mensagens.service';
+import { StorageService } from '../auth/shared/storege.service';
 
 @Component({
   selector: 'app-cabecalho',
@@ -9,15 +12,21 @@ import { MegaMenuItem, MenuItem } from 'primeng/api';
 export class CabecalhoComponent implements OnInit {
 
   item: MenuItem[] = [];
-  user: MenuItem[] = []
+  user: MenuItem[] = [];
+  storageService: StorageService;
+  nomeUsuario: string = "";
 
-  constructor() { }
+
+  constructor(private _storageService: StorageService, private router: Router, private megService: MensagensService) {
+    this.storageService = _storageService;
+  }
 
   ngOnInit(): void {
     this.item = [
       {
         label: 'Home',
-        icon: 'pi pi-home'
+        icon: 'pi pi-home',
+        routerLink: '/home'
       },
       {
         label: 'Galeria',
@@ -45,8 +54,30 @@ export class CabecalhoComponent implements OnInit {
       }
     ];
     this.user = [
-      { label: '', icon: 'pi pi-user', items: [{ label: 'Login' }] }
+      { label: '', icon: 'pi pi-user', routerLink: '/login' }
     ];
+  }
+
+  getNomeUsuario(): string {
+    if (this.storageService.isLoggin()) {
+      let usuario = this.storageService.getUser();
+      let num: number = (usuario.nome as string).indexOf(" ");
+      return (usuario.nome as string).substring(0, num);
+    } else {
+      return "";
+    }
+  }
+  navegarPara(caminho: string) {
+    this.router.navigateByUrl("/" + caminho);
+  }
+
+  async logout() {
+    this.megService.mostrarMensagemSimNao('Logout', 'Deseja encerrar sua sessão?').then(value => {
+      if (value) {
+        this.storageService.signOut();
+        this.navegarPara('home');
+      }
+    });
   }
 
 }
