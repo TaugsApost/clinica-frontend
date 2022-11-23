@@ -9,6 +9,7 @@ import { HttpErrorInterceptor } from './utils/interceptador/interceptador';
 import { LoaderInterceptador } from './utils/interceptador/loader-interceptador';
 import { LoaderModule } from './utils/loader/loader.module';
 import { MensagensModule } from './utils/mensagens/mensagens.module';
+import { CadastroModule } from './cadastro-endereco/cadastro.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MensagensModule } from './utils/mensagens/mensagens.module';
     BrowserAnimationsModule,
     NoopAnimationsModule,
     EstruturaModule,
-    LoaderModule
+    LoaderModule,
+    CadastroModule
   ],
   providers: [
     {

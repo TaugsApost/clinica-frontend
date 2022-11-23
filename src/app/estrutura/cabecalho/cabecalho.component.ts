@@ -38,7 +38,8 @@ export class CabecalhoComponent implements OnInit {
         items: [
           {
             label: 'Novo Endereço',
-            icon: 'pi pi-plus-circle'
+            icon: 'pi pi-plus-circle',
+            routerLink: '/cadastro-endereco'
           }
         ]
       },
