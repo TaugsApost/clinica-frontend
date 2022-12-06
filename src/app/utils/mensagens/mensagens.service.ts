@@ -27,6 +27,24 @@ export class MensagensService {
     });
   }
 
+  mostrarMensagemComRetorno(titulo: string, texto: string, icone?: string) {
+    return new Promise<boolean>(resolve => {
+      this.confirmationService.confirm({
+        message: texto,
+        header: titulo,
+        icon: icone,
+        rejectVisible: false,
+        key: 'info',
+        accept: () => {
+          resolve(true);
+        },
+        reject: () => {
+          resolve(true);
+        }
+      });
+    });
+  }
+
   mostrarMensagemSimNao(titulo: string, texto: string, icone?: string) {
     return new Promise<boolean>(resolve => {
       this.confirmationService.confirm({

@@ -66,11 +66,6 @@
                 </div>
                 <div class="absolute shadow-2 min-w-full py-2 hidden  surface-section">
                     <ul class="list-none p-0 m-0">
-                        <!-- <li>
-                            <label class="block p-3 no-underline py-2 px-3 
-                                                            hover:surface-hover transition-all transition-duration-500 
-                                                            text-black-alpha-90"><i class="pi pi-cog mr-0"></i> Configurações</label>
-                        </li> -->
                         <li (click)="logout()">
                             <label class="block p-3 no-underline py-2 px-3 
                                     hover:surface-hover transition-all transition-duration-500 
@@ -80,10 +75,5 @@
                 </div>
             </div>
         </div>
-        <!-- <p-menubar *ngIf="!storageService.isLoggin()" [model]="user" styleClass="border-none">
-        </p-menubar>
-        <span class="pr-5" *ngIf="storageService.isLoggin()"><i
-                class="transition-all transition-duration-500 hover:shadow-4 hover:surface-300 cursor-pointer p-2 pi pi-user"></i>
-            {{getNomeUsuario()}}</span> -->
     </ng-template>
 </p-menubar>

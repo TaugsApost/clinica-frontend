@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FuncionarioResponse } from 'src/app/model/entidades.model';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'usuario';
@@ -32,12 +33,23 @@ export class StorageService {
         return user != null;
     }
 
-    public getUser(): any {
+    public getFuncao(): string {
+        if (this.isLoggin()) {
+            return this.getUser().funcao
+        } else {
+            return '';
+        }
+    }
+
+    public isMedico(): boolean {
+        return this.getFuncao() == 'MEDICO';
+    }
+
+    public getUser(): FuncionarioResponse {
         const user = window.sessionStorage.getItem(USER_KEY);
         if (user) {
             return JSON.parse(user);
         }
-
-        return {};
+        return new FuncionarioResponse;
     }
 }

@@ -70,4 +70,7 @@ export abstract class BaseEditComponent<Filter, Entity>{
     voltar() {
         this.navegarPara(this.voltarPara);
     }
+    limpar() {
+        this.formulario.reset();
+    }
 }

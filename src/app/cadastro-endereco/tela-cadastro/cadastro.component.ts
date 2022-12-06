@@ -14,10 +14,11 @@ import { Endereco } from '../shared/endereco.model';
 })
 export class CadastroComponent extends BaseEditComponent<Endereco, Endereco> implements OnInit {
 
-  //formulario: FormGroup;
+  cepValido: boolean = false;
+  labelCepCadastrado: boolean = false;
 
-  constructor(service: CadastroService, activatedRoute: ActivatedRoute, _router: Router, msgService: MensagensService) {
-    super(service, activatedRoute, _router, 'cadastro', msgService);
+  constructor(private _service: CadastroService, activatedRoute: ActivatedRoute, _router: Router, msgService: MensagensService) {
+    super(_service, activatedRoute, _router, 'cadastro', msgService);
     this.formulario = new FormGroup(
       {
         cep: new FormControl('', Validators.required),
@@ -30,6 +31,19 @@ export class CadastroComponent extends BaseEditComponent<Endereco, Endereco> imp
   }
 
   ngOnInit(): void {
+  }
+
+  pesquisarCep() {
+    if (this.formulario.controls['cep'].valid) {
+      this._service.buscarPorCep(this.formulario.controls['cep'].value).subscribe(endereco => {
+        if (endereco.id == null) {
+          this.cepValido = true;
+          this.labelCepCadastrado = false;
+        } else {
+          this.labelCepCadastrado = true
+        }
+      })
+    }
   }
 
   cadastrar() {
@@ -46,6 +60,12 @@ export class CadastroComponent extends BaseEditComponent<Endereco, Endereco> imp
     } else {
       this.msgService.mostrarMensagem('Erro', 'Campo obrigatório em branco')
     }
+  }
+
+  override limpar(): void {
+    super.limpar();
+    this.labelCepCadastrado = false;
+    this.cepValido = false;
   }
 
 }

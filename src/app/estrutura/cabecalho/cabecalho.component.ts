@@ -40,6 +40,24 @@ export class CabecalhoComponent implements OnInit {
             label: 'Novo Endereço',
             icon: 'pi pi-plus-circle',
             routerLink: '/cadastro-endereco'
+          },
+          {
+            label: 'Paciente',
+            icon: 'pi pi-plus-circle',
+            routerLink: '/cadastro-endereco',
+            visible: this.storageService.isLoggin()
+          },
+          {
+            label: 'Funcionário',
+            icon: 'pi pi-plus-circle',
+            routerLink: '/cadastro-endereco',
+            visible: this.storageService.isLoggin()
+          },
+          {
+            label: 'Médico',
+            icon: 'pi pi-plus-circle',
+            routerLink: '/cadastro-endereco',
+            visible: this.storageService.isLoggin()
           }
         ]
       },
@@ -52,10 +70,23 @@ export class CabecalhoComponent implements OnInit {
             icon: 'pi pi-plus-circle'
           }
         ]
+      },
+      {
+        label: 'Gerenciamento',
+        icon: 'pi pi-cog',
+        visible: this.storageService.isLoggin(),
+        items: [
+          {
+            label: 'Visualizar Dados',
+            icon: 'pi pi-cog'
+          },
+          {
+            label: 'Minhas Consultas',
+            icon: 'pi pi-cog',
+            visible: this.storageService.isMedico()
+          },
+        ]
       }
-    ];
-    this.user = [
-      { label: '', icon: 'pi pi-user', routerLink: '/login' }
     ];
   }
 
@@ -76,7 +107,9 @@ export class CabecalhoComponent implements OnInit {
     this.megService.mostrarMensagemSimNao('Logout', 'Deseja encerrar sua sessão?').then(value => {
       if (value) {
         this.storageService.signOut();
-        this.navegarPara('home');
+        //this.navegarPara('home');
+        this.router.navigate(['/home']);
+        window.location.reload();
       }
     });
   }

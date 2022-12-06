@@ -1,55 +1,78 @@
 <div class="grid flex justify-content-center">
-    <div class="mt-8 ml-8 col-5">
+    <div class="mt-8 ml-8 col-7">
         <p-card [header]="'Cadastro de Endereço'"
             [style]="{'width':'100%'}"
             styleClass="border-round-xl">
             <form [formGroup]="formulario">
                 <div class="col-12">
                     <p-card styleClass="border-round-xl">
-                        <div class="grid col-12 formgrid">
-                            <div class="col-12 mt-3 field">
+                        <div class="formgrid grid col-12">
+                            <div *ngIf="!cepValido"
+                                class="col-12 field">
                                 <span class="p-float-label">
-                                    <input pInputText
-                                        class="p-inputtext"
-                                        type="number"
-                                        formControlName="cep">
-                                    <label for="">CEP</label>
+                                    <p-inputMask (onComplete)="pesquisarCep()"
+                                        formControlName="cep"
+                                        styleClass="w-full p-inputtext-sm"
+                                        mask="99999-999">
+                                    </p-inputMask>
+                                    <label for="">CEP *</label>
                                 </span>
                             </div>
-                            <div class="col-12 pt-1 mt-3 field">
+                            <div *ngIf="cepValido"
+                                class="col-6 field">
+                                <span class="p-inputgroup">
+                                    <p-inputMask (onComplete)="pesquisarCep()"
+                                        formControlName="cep"
+                                        styleClass="w-full p-inputtext-sm"
+                                        mask="99999-999">
+                                    </p-inputMask>
+                                    <span (click)="limpar()"
+                                        class="p-inputgroup-addon cursor-pointer"><i class="pi pi-times"></i></span>
+                                </span>
+                            </div>
+                            <label *ngIf="labelCepCadastrado"
+                                class="ml-3 mt-0 text-xs">* Endereco ja cadastrado</label>
+                        </div>
+
+                        <div *ngIf="cepValido"
+                            class="formgrid grid col-12">
+                            <div class="col-12 field">
                                 <span class="p-float-label">
                                     <input pInputText
-                                        class="p-inputtext"
+                                        class="p-inputtext-sm"
                                         type="text"
                                         formControlName="logradouro">
-                                    <label for="">Logradouro</label>
+                                    <label for="">Logradouro *</label>
                                 </span>
                             </div>
-                            <div class="col-12 pt-1 mt-3 field">
+                        </div>
+                        <div *ngIf="cepValido"
+                            class="formgrid grid col-12">
+                            <div class="col-4 field">
                                 <span class="p-float-label">
                                     <input pInputText
-                                        class="p-inputtext"
+                                        class="p-inputtext-sm"
                                         type="text"
                                         formControlName="bairro">
-                                    <label for="">Bairro</label>
+                                    <label for="">Bairro *</label>
                                 </span>
                             </div>
-                            <div class="col-12 pt-1 mt-3 field">
+                            <div class="col-4 field">
                                 <span class="p-float-label">
                                     <input pInputText
-                                        class="p-inputtext"
+                                        class="p-inputtext-sm"
                                         type="text"
                                         formControlName="cidade">
-                                    <label for="">Cidade</label>
+                                    <label for="">Cidade *</label>
                                 </span>
                             </div>
-                            <div class="col-12 pt-1 mt-3 field">
+                            <div class="col-4 field">
                                 <span class="p-float-label">
                                     <input pInputText
-                                        class="p-inputtext"
+                                        class="p-inputtext-sm"
                                         type="text"
                                         formControlName="estado">
-                                    <label for="">Estado</label>
+                                    <label for="">Estado *</label>
                                 </span>
                             </div>
                         </div>
@@ -62,6 +85,14 @@
                             [style]="{'width':'100%'}"
                             label="Cadastrar"
                             (click)="cadastrar()">
+                        </button>
+                    </div>
+                    <div class="col-3 mb-0">
+                        <button pButton
+                            class="p-button-raised p-button-secondary p-button-sm"
+                            [style]="{'width':'100%'}"
+                            label="Limpar"
+                            (click)="limpar()">
                         </button>
                     </div>
                 </div>

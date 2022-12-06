@@ -32,9 +32,11 @@ export class LoginComponent implements OnInit {
       let usuario: Usuario = this.formulario.getRawValue();
       this.service.logar(usuario).subscribe(
         data => {
-          this.msgService.mostrarMensagem('Sucesso', "Login efetivado!")
           this.storegeService.saveUser(data);
-          this.router.navigate(['home']);
+          this.msgService.mostrarMensagemComRetorno('Sucesso', "Login efetivado!").then(value => {
+            this.router.navigate(['/home']);
+            window.location.reload();
+          });
         }, error => {
           this.msgService.mostrarMensagem('Erro', 'Usuario ou senha incorretos')
         }

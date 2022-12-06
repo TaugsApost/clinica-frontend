@@ -14,10 +14,18 @@ input {
 
 input.ng-invalid {
     border-color: red !important;
+    background-color: rgba(255, 58, 58, 0.089)
 }
 
-input.ng-invalid~label {
+input.ng-invalid~label,
+p-inputMask.ng-invalid~label {
     color: red !important;
+
+}
+
+p-inputMask.ng-invalid>input {
+    border-color: red !important;
+    background-color: rgba(255, 58, 58, 0.089) !important;
 }
 
 p-dropdown.ng-invalid:not(form)>div {
