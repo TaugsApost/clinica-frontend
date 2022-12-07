@@ -24,10 +24,11 @@
                                     <p-inputMask (onComplete)="pesquisarCep()"
                                         formControlName="cep"
                                         styleClass="w-full p-inputtext-sm"
-                                        mask="99999-999">
+                                        mask="99999-999"
+                                        [disabled]="true">
                                     </p-inputMask>
                                     <span (click)="limpar()"
-                                        class="p-inputgroup-addon cursor-pointer"><i class="pi pi-times"></i></span>
+                                        class="p-inputgroup-addon cursor-pointer"><i class="pi pi-times text-xs"></i></span>
                                 </span>
                             </div>
                             <label *ngIf="labelCepCadastrado"

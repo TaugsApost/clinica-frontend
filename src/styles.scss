@@ -12,13 +12,18 @@ input {
     width: 100%;
 }
 
+input:disabled {
+    background-color: darkgray !important;
+}
+
 input.ng-invalid {
     border-color: red !important;
     background-color: rgba(255, 58, 58, 0.089)
 }
 
 input.ng-invalid~label,
-p-inputMask.ng-invalid~label {
+p-inputMask.ng-invalid~label,
+p-dropdown.ng-invalid:not(form)~label {
     color: red !important;
 
 }
@@ -31,6 +36,7 @@ p-inputMask.ng-invalid>input {
 p-dropdown.ng-invalid:not(form)>div {
     border-color: red !important;
     color: red;
+    background-color: rgba(255, 58, 58, 0.089);
 }
 
 p-dropdown>div {

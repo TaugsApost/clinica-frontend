@@ -1,0 +1,180 @@
+<div class="col-12 mt-2 flex justify-content-center">
+    <form [formGroup]="formulario"
+        class="col-12 mt-2 flex justify-content-center">
+        <div class="col-11">
+            <p-card styleClass="w-full border-round-xl"
+                header="Cadastro de Pacientes">
+                <p-fieldset [legend]="'Dados do paciente'"
+                    [toggleable]="false">
+                    <div [formGroup]="formNome"
+                        class="formgrid grid col-12 mt-2">
+                        <div class="col-6 field">
+                            <span class="p-float-label">
+                                <input type="text"
+                                    pInputText
+                                    class="p-inputtext-sm"
+                                    formControlName="nome">
+                                <label for="">Nome *</label>
+                            </span>
+                        </div>
+                        <div class="col-6 field">
+                            <span class="p-float-label">
+                                <input type="text"
+                                    pInputText
+                                    class="p-inputtext-sm"
+                                    formControlName="sobrenome">
+                                <label for="">Sobrenome *</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="formgrid  mt-3 grid col-12">
+                        <div class="col-4 field">
+                            <span class="p-float-label">
+                                <input type="number"
+                                    pInputText
+                                    class="p-inputtext-sm"
+                                    formControlName="peso"
+                                    min="1">
+                                <label for="">Peso *</label>
+                            </span>
+                        </div>
+                        <div class="col-4 field">
+                            <span class="p-float-label">
+                                <input type="number"
+                                    pInputText
+                                    class="p-inputtext-sm"
+                                    formControlName="altura"
+                                    min="1">
+                                <label for="">Altura *</label>
+                            </span>
+                        </div>
+                        <div class="col-4 field">
+                            <span class="p-float-label">
+                                <p-dropdown [options]="listaTipoSanguineo"
+                                    [placeholder]="'Tipo Sanguíneo'"
+                                    styleClass="p-inputtext-sm"
+                                    inputId="dropdown"
+                                    formControlName="tipoSanguineo">
+                                </p-dropdown>
+                                <label for="dropdown">Tipo Sanguíneo *</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="formgrid mt-3 grid col-12"
+                        [formGroup]="formContato">
+                        <div class="col-4 field">
+                            <span class="p-float-label">
+                                <input type="text"
+                                    pInputText
+                                    class="p-inputtext-sm"
+                                    formControlName="email">
+                                <label for="">Email *</label>
+                            </span>
+                        </div>
+                        <div class="col-4 field">
+                            <span class="p-float-label">
+                                <p-inputMask styleClass="w-full p-inputtext-sm"
+                                    formControlName="telefone"
+                                    [mask]="'(99) 9999-9999'">
+                                </p-inputMask>
+                                <label for="">Telefone *</label>
+                            </span>
+                        </div>
+                        <div class="col-4 field">
+                            <span class="p-float-label">
+                                <p-inputMask styleClass="w-full p-inputtext-sm"
+                                    formControlName="celular"
+                                    [mask]="'(99) 9 9999-9999'">
+                                </p-inputMask>
+                                <label for="">Celular *</label>
+                            </span>
+                        </div>
+                    </div>
+                </p-fieldset>
+                <p-fieldset styleClass="mt-4"
+                    [legend]="'Endereco'"
+                    [toggleable]="false">
+                    <div class="formgrid grid mt-2 col-12">
+                        <div class="col-3 field">
+                            <span class="p-float-label">
+                                <p-inputMask styleClass="w-full p-inputtext-sm"
+                                    [mask]="'99999-999'"
+                                    formControlName="cep"
+                                    (onComplete)="pesquisarCep()"></p-inputMask>
+                                <label for="">CEP *</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="formgrid grid mt-2 col-12">
+                        <div class="col-8 field">
+                            <span class="p-float-label">
+                                <input pInputText
+                                    class="p-inputtext-sm"
+                                    type="text"
+                                    formControlName="logradouro">
+                                <label for="">Logradouro *</label>
+                            </span>
+                        </div>
+                        <div class="col-4 field">
+                            <span class="p-float-label">
+                                <input pInputText
+                                    class="p-inputtext-sm"
+                                    type="number"
+                                    min="1"
+                                    formControlName="numeroCasa">
+                                <label for="">Número *</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="formgrid mt-3 grid col-12">
+                        <div class="col-4 field">
+                            <span class="p-float-label">
+                                <input pInputText
+                                    class="p-inputtext-sm"
+                                    type="text"
+                                    formControlName="bairro">
+                                <label for="">Bairro *</label>
+                            </span>
+                        </div>
+                        <div class="col-4 field">
+                            <span class="p-float-label">
+                                <input pInputText
+                                    class="p-inputtext-sm"
+                                    type="text"
+                                    formControlName="cidade">
+                                <label for="">Cidade *</label>
+                            </span>
+                        </div>
+                        <div class="col-4 field">
+                            <span class="p-float-label">
+                                <input pInputText
+                                    class="p-inputtext-sm"
+                                    type="text"
+                                    formControlName="estado">
+                                <label for="">Estado *</label>
+                            </span>
+                        </div>
+                    </div>
+                </p-fieldset>
+                <div class="col-12 formgrid grid flex justify-content-center mt-4 mb-0">
+                    <div class="col-5 field mb-0">
+                        <button pButton
+                            class="p-button-raised p-button-success p-button-sm"
+                            [style]="{'width':'100%'}"
+                            label="Cadastrar"
+                            (click)="salvar()">
+                        </button>
+                    </div>
+                    <div class="col-5 field mb-0">
+                        <button pButton
+                            class="p-button-raised p-button-secondary p-button-sm"
+                            [style]="{'width':'100%'}"
+                            label="Limpar"
+                            (click)="limpar()">
+                        </button>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+    </form>
+</div>

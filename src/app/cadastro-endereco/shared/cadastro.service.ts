@@ -8,7 +8,7 @@ import { Endereco, EnderecoFilter } from './endereco.model';
 @Injectable({
   providedIn: 'root'
 })
-export class CadastroService extends BaseService<EnderecoFilter, Endereco> {
+export class EnderecoService extends BaseService<EnderecoFilter, Endereco> {
 
   constructor(private _http: HttpClient) {
     super('baseEndereco', _http);

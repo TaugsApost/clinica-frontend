@@ -46,4 +46,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  limpar() {
+    this.formulario.reset();
+  }
+
 }

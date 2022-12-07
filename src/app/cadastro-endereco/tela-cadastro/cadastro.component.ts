@@ -4,7 +4,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { StorageService } from 'src/app/estrutura/auth/shared/storege.service';
 import { BaseEditComponent } from 'src/app/utils/classes-bases/editar.component';
 import { MensagensService } from 'src/app/utils/mensagens/mensagens.service';
-import { CadastroService } from '../shared/cadastro.service';
+import { EnderecoService } from '../shared/cadastro.service';
 import { Endereco } from '../shared/endereco.model';
 
 @Component({
@@ -17,7 +17,7 @@ export class CadastroComponent extends BaseEditComponent<Endereco, Endereco> imp
   cepValido: boolean = false;
   labelCepCadastrado: boolean = false;
 
-  constructor(private _service: CadastroService, activatedRoute: ActivatedRoute, _router: Router, msgService: MensagensService) {
+  constructor(private _service: EnderecoService, activatedRoute: ActivatedRoute, _router: Router, msgService: MensagensService) {
     super(_service, activatedRoute, _router, 'cadastro', msgService);
     this.formulario = new FormGroup(
       {

@@ -23,12 +23,12 @@ export abstract class BaseService<Filter, Entity>{
         this.url = this.restMap.comum.urlSimulador + caminho;
     }
 
-    salvar(entity: Entity): Observable<any> {
-        return this.http.post(this.urlSalvar, entity);
+    salvar(entity: Entity): Observable<Entity> {
+        return this.http.post<Entity>(this.urlSalvar, entity);
     }
 
-    listar(): Observable<any> {
-        return this.http.get(this.urlListar);
+    listar(): Observable<Entity> {
+        return this.http.get<Entity>(this.urlListar);
     }
 
     excluir(id: number): Observable<any> {
@@ -39,7 +39,7 @@ export abstract class BaseService<Filter, Entity>{
         return this.http.post(this.urlBuscar, filter);
     }
 
-    detalhar(id: number): Observable<any> {
-        return this.http.get(`${this.urlDetalhar}/${id}`);
+    detalhar(id: number): Observable<Entity> {
+        return this.http.get<Entity>(`${this.urlDetalhar}/${id}`);
     }
 }
