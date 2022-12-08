@@ -33,10 +33,12 @@ import { InplaceModule } from 'primeng/inplace';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { StyleClassModule } from 'primeng/styleclass';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { PasswordModule } from 'primeng/password';
 
 
 @NgModule({
   exports: [
+    PasswordModule,
     ProgressSpinnerModule,
     StyleClassModule,
     MegaMenuModule,

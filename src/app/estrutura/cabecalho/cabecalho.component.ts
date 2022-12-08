@@ -44,19 +44,13 @@ export class CabecalhoComponent implements OnInit {
           {
             label: 'Paciente',
             icon: 'pi pi-plus-circle',
-            routerLink: '/cadastro-endereco',
+            routerLink: '/cadastro/paciente',
             visible: this.storageService.isLoggin()
           },
           {
             label: 'Funcionário',
             icon: 'pi pi-plus-circle',
-            routerLink: '/cadastro-endereco',
-            visible: this.storageService.isLoggin()
-          },
-          {
-            label: 'Médico',
-            icon: 'pi pi-plus-circle',
-            routerLink: '/cadastro-endereco',
+            routerLink: '/cadastro/funcionario',
             visible: this.storageService.isLoggin()
           }
         ]
@@ -67,7 +61,8 @@ export class CabecalhoComponent implements OnInit {
         items: [
           {
             label: 'Nova Consulta',
-            icon: 'pi pi-plus-circle'
+            icon: 'pi pi-plus-circle',
+            routerLink: '/cadastro/agendamento'
           }
         ]
       },

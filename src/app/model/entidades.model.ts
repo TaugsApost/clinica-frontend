@@ -38,3 +38,29 @@ export class Contato {
     telefone = '';
     celular = ''
 }
+
+export class Agenda {
+    codigo = 0;
+    codigoMedico = 0;
+    data = new Date;
+    nome = '';
+    email = '';
+    telefone = '';
+    horario = 0;
+
+}
+export class Funcionario extends Pessoa {
+    dataContrato = new Date;
+    salario = 0;
+    senhaHash = '';
+}
+
+export class Medico extends Funcionario {
+    crm = 0;
+    especialidade: Especialidade = new Especialidade;
+}
+
+export class Especialidade {
+    id = 0;
+    nome = '';
+}
