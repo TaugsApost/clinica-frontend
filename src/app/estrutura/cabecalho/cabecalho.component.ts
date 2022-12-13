@@ -30,7 +30,8 @@ export class CabecalhoComponent implements OnInit {
       },
       {
         label: 'Galeria',
-        icon: 'pi pi-image'
+        icon: 'pi pi-image',
+        routerLink: '/galeria'
       },
       {
         label: 'Cadastro',

@@ -1,0 +1,65 @@
+<div class="grid flex justify-content-center">
+	<div class="mt-1 ml-1 col- ">
+		<p-card styleClass="border-round-xl">
+			<div class="row justify-content-center"
+				id="gallery"
+				data-toggle="modal"
+				data-target="#exampleModal">
+				<div class="col-12 col-sm-6 col-lg-3">
+					<img class="w-100"
+						src=".\assets\imagens\image-1.jpg"
+						alt="First slide"
+						data-target="#carouselExample"
+						data-slide-to="0">
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<img class="w-100"
+						src=".\assets\imagens\image-2.jpg"
+						alt="First slide"
+						data-target="#carouselExample"
+						data-slide-to="1">
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<img class="w-100"
+						src=".\assets\imagens\image-3.jpg"
+						alt="First slide"
+						data-target="#carouselExample"
+						data-slide-to="2">
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<img class="w-100"
+						src=".\assets\imagens\image-5.jpg"
+						alt="First slide"
+						data-target="#carouselExample"
+						data-slide-to="4">
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<img class="w-100"
+						src=".\assets\imagens\image-6.jpg"
+						alt="First slide"
+						data-target="#carouselExample"
+						data-slide-to="5">
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<img class="w-100"
+						src=".\assets\imagens\image-4.webp"
+						alt="First slide"
+						data-target="#carouselExample"
+						data-slide-to="3">
+				</div>
+			</div>
+		</p-card>
+	</div>
+</div>
+
+<script>
+	function switchStyle() {
+		if (document.getElementById('styleSwitch').checked) {
+			document.getElementById('gallery').classList.add("custom");
+			document.getElementById('exampleModal').classList.add("custom");
+		} else {
+			document.getElementById('gallery').classList.remove("custom");
+			document.getElementById('exampleModal').classList.remove("custom");
+		}
+	}
+</script>

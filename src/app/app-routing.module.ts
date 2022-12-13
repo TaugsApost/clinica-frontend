@@ -5,6 +5,7 @@ import { LoginModule } from './/login/login.module';
 import { CadastroEnderecoModule } from './cadastro-endereco/cadastro-endereco.module';
 import { CadastroModule } from './cadastro/cadastro.module';
 import { AuthGuard } from './estrutura/auth/auth.guard';
+import { GaleriaModule } from './galeria/galeria.module';
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
     path: 'cadastro',
     loadChildren: () => import('./cadastro/cadastro.module').then(x => CadastroModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'galeria',
+    loadChildren: () => import('./galeria/galeria.module').then(x => GaleriaModule),
+    //canActivate: [AuthGuard]
   },
   {
     path: '',
