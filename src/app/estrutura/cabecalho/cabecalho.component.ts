@@ -80,6 +80,7 @@ export class CabecalhoComponent implements OnInit {
           {
             label: 'Minhas Consultas',
             icon: 'pi pi-cog',
+            routerLink: '/gerenciamento/minhas-consultas',
             visible: this.storageService.isMedico()
           },
         ]

@@ -13,6 +13,7 @@ import { GerenciarEnderecosComponent } from './gerenciamento/gerenciar-enderecos
 import { GerenciarFuncionariosComponent } from './gerenciamento/gerenciar-funcionarios/gerenciar-funcionarios.component';
 import { GerenciarPacientesComponent } from './gerenciamento/gerenciar-pacientes/gerenciar-pacientes.component';
 import { SourceComponent } from './gerenciamento/source/source.component';
+import { MeusAgendamentosComponent } from './meus-agendamentos/meus-agendamentos/meus-agendamentos.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,7 @@ const routes: Routes = [
   {
     path: 'gerenciamento',
     component: SourceComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', component: GerenciarPacientesComponent },
       { path: 'pacientes', component: GerenciarPacientesComponent },
@@ -53,6 +55,11 @@ const routes: Routes = [
       { path: 'enderecos', component: GerenciarEnderecosComponent },
       { path: 'funcionarios', component: GerenciarFuncionariosComponent },
     ]
+  },
+  {
+    path: 'gerenciamento/minhas-consultas',
+    component: MeusAgendamentosComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',

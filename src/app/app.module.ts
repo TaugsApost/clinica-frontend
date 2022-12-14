@@ -10,6 +10,7 @@ import { LoaderInterceptador } from './utils/interceptador/loader-interceptador'
 import { LoaderModule } from './utils/loader/loader.module';
 import { MensagensModule } from './utils/mensagens/mensagens.module';
 import { CadastroEnderecoModule } from './cadastro-endereco/cadastro-endereco.module';
+import { MeusAgendamentosModule } from './meus-agendamentos/meus-agendamentos.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CadastroEnderecoModule } from './cadastro-endereco/cadastro-endereco.mo
     NoopAnimationsModule,
     EstruturaModule,
     LoaderModule,
-    CadastroEnderecoModule
+    CadastroEnderecoModule,
+    MeusAgendamentosModule,
   ],
   providers: [
     {
