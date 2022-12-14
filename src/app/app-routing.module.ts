@@ -7,6 +7,12 @@ import { AgendamentoComponent } from './cadastro/agendamento/tela-agendamento/ag
 import { CadastroModule } from './cadastro/cadastro.module';
 import { AuthGuard } from './estrutura/auth/auth.guard';
 import { GaleriaModule } from './galeria/galeria.module';
+import { GerenciamentoModule } from './gerenciamento/gerenciamento.module';
+import { GerenciarConsultasComponent } from './gerenciamento/gerenciar-consultas/gerenciar-consultas.component';
+import { GerenciarEnderecosComponent } from './gerenciamento/gerenciar-enderecos/gerenciar-enderecos.component';
+import { GerenciarFuncionariosComponent } from './gerenciamento/gerenciar-funcionarios/gerenciar-funcionarios.component';
+import { GerenciarPacientesComponent } from './gerenciamento/gerenciar-pacientes/gerenciar-pacientes.component';
+import { SourceComponent } from './gerenciamento/source/source.component';
 
 const routes: Routes = [
   {
@@ -29,7 +35,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-
     path: 'cadastro/agendamento',
     component: AgendamentoComponent
   },
@@ -37,6 +42,16 @@ const routes: Routes = [
     path: 'galeria',
     loadChildren: () => import('./galeria/galeria.module').then(x => GaleriaModule),
     //canActivate: [AuthGuard]
+  },
+  {
+    path: 'gerenciamento',
+    component: SourceComponent,
+    children: [
+      { path: 'pacientes', component: GerenciarPacientesComponent },
+      { path: 'consultas', component: GerenciarConsultasComponent },
+      { path: 'enderecos', component: GerenciarEnderecosComponent },
+      { path: 'funcionarios', component: GerenciarFuncionariosComponent },
+    ]
   },
   {
     path: '',

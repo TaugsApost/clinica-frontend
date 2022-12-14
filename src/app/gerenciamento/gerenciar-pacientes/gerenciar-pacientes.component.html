@@ -1,0 +1,97 @@
+<div class="col-12 mt-2 flex justify-content-center mb-5">
+    <form [formGroup]="formulario"
+        class="col-12 mt-2 flex justify-content-center">
+        <div class="col-11">
+            <p-card styleClass="w-full border-round-xl"
+                header="Consultar Pacientes">
+                <div class="col-12 formgrid grid mt-3">
+                    <div class="col-12 field">
+                        <span class="p-float-label">
+                            <input pInputText
+                                type="text"
+                                class="p-inputtext-sm"
+                                formControlName="nome">
+                            <label for="">Nome do Paciente</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 formgrid grid mt-3">
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <input type="number"
+                                pInputText
+                                class="p-inputtext-sm"
+                                formControlName="peso">
+                            <label for="">Peso</label>
+                        </span>
+                    </div>
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <input type="number"
+                                pInputText
+                                class="p-inputtext-sm"
+                                formControlName="altura">
+                            <label for="">Altura</label>
+                        </span>
+                    </div>
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <p-dropdown [options]="listaTipoSanguineo"
+                                [placeholder]="'Tipo Sanguíneo'"
+                                styleClass="p-inputtext-sm"
+                                inputId="dropdown"
+                                formControlName="tipoSanguineo">
+                            </p-dropdown>
+                            <label for="dropdown">Tipo Sanguíneo *</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 formgrid grid mt-3">
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <input pInputText
+                                type="text"
+                                class="p-inputtext-sm"
+                                formControlName="bairro">
+                            <label for="">Bairro</label>
+                        </span>
+                    </div>
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <input pInputText
+                                type="text"
+                                class="p-inputtext-sm"
+                                formControlName="cidade">
+                            <label for="">Cidade</label>
+                        </span>
+                    </div>
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <input pInputText
+                                type="text"
+                                class="p-inputtext-sm"
+                                formControlName="estado">
+                            <label for="">Estado</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-12 formgrid grid mt-5 flex justify-content-center">
+                    <div class="col-5 field">
+                        <button pButton
+                            class="p-button-raised p-button-success p-button-sm"
+                            [style]="{'width':'100%'}"
+                            label="Pesquisar"
+                            (click)="pesquisar()">
+                        </button>
+                    </div>
+                </div>
+            </p-card>
+            <p-card styleClass="w-full border-round-xl mt-5">
+                <taugs-tabela [titulo]="'Lista de Pacientes'"
+                    [columns]="columns"
+                    [dataSource]="dataSource"></taugs-tabela>
+            </p-card>
+        </div>
+    </form>
+</div>

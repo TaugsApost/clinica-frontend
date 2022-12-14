@@ -74,6 +74,7 @@ export class CabecalhoComponent implements OnInit {
         items: [
           {
             label: 'Visualizar Dados',
+            routerLink: '/gerenciamento',
             icon: 'pi pi-cog'
           },
           {

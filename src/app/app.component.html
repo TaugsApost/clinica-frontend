@@ -1,13 +1,13 @@
 <app-mensagens></app-mensagens>
 <taugs-loader *ngIf="loadService.visibility  | async"></taugs-loader>
 <div class="grid">
-    <div class="col-12">
+    <div class="col-12 mb-0 pb-0">
         <app-cabecalho></app-cabecalho>
     </div>
-    <div class="col-12">
+    <div class="col-12 mt-0 pt-0 mb-0 pb-0">
         <router-outlet></router-outlet>
     </div>
-    <div class="col-12 mt-3 mb-0 pb-0">
+    <div class="col-12 mt-0 pt-0 mb-0 pb-0">
         <app-footer></app-footer>
     </div>
 </div>

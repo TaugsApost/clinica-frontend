@@ -47,12 +47,41 @@ export class Agenda {
     email = '';
     telefone = '';
     horario = 0;
-
 }
+
+export class AgendaFilter {
+    nome = '';
+    data = new Date;
+    codigoMedico = 0;
+    cep = '';
+    numeroCasa = 0;
+}
+
 export class Funcionario extends Pessoa {
     dataContrato = new Date;
     salario = 0;
     senhaHash = '';
+}
+
+export class PacienteFilter {
+    nome = '';
+    tipoSanguineo = '';
+    peso = 0;
+    altura = 0;
+    cidade = '';
+    estado = '';
+    bairro = '';
+}
+
+export class FuncionarioFilter {
+    nome = '';
+    cidade = '';
+    estado = '';
+    bairro = '';
+    salario = 0;
+    dataContrato = new Date;
+    operadorSalario = '';
+    operadorData = '';
 }
 
 export class Medico extends Funcionario {

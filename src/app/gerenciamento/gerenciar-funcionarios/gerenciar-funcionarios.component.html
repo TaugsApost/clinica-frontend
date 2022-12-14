@@ -1,0 +1,105 @@
+<div class="col-12 mt-2 flex justify-content-center mb-5">
+    <form [formGroup]="formulario"
+        class="col-12 mt-2 flex justify-content-center">
+        <div class="col-11">
+            <p-card styleClass="w-full border-round-xl"
+                header="Consultar Funcionarios">
+                <div class="col-12 formgrid grid mt-3">
+                    <div class="col-12 field">
+                        <span class="p-float-label">
+                            <input pInputText
+                                type="text"
+                                class="p-inputtext-sm"
+                                formControlName="nome">
+                            <label for="">Nome do Funcionario</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 formgrid grid mt-3">
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <input pInputText
+                                type="text"
+                                class="p-inputtext-sm"
+                                formControlName="bairro">
+                            <label for="">Bairro</label>
+                        </span>
+                    </div>
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <input pInputText
+                                type="text"
+                                class="p-inputtext-sm"
+                                formControlName="cidade">
+                            <label for="">Cidade</label>
+                        </span>
+                    </div>
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <input pInputText
+                                type="text"
+                                class="p-inputtext-sm"
+                                formControlName="estado">
+                            <label for="">Estado</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 formgrid grid mt-3 flex justify-content-between">
+                    <div class="col-6 field formgrid grid">
+                        <!-- <div class="col-4 field">
+                            <span class="p-float-label">
+                                <p-dropdown placeholder="Operador"
+                                    formControlName="operadorSalario"
+                                    [options]="listaOperadores"></p-dropdown>
+                                <label for="">Operador</label>
+                            </span>
+                        </div> -->
+                        <div class="col-12 field">
+                            <span class="p-float-label">
+                                <input pInputText
+                                    type="text"
+                                    class="p-inputtext-sm"
+                                    formControlName="salario">
+                                <label for="">Salario</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-6 field formgrid grid">
+                        <!-- <div class="col-4 field">
+                            <span class="p-float-label">
+                                <p-dropdown placeholder="Operador"
+                                    formControlName="operadorData"
+                                    [options]="listaOperadores"></p-dropdown>
+                                <label for="">Operador</label>
+                            </span>
+                        </div> -->
+                        <div class="col-12 field">
+                            <span class="p-float-label">
+                                <p-calendar dateFormat="dd/mm/yy"
+                                    formControlName="dataContrato"
+                                    styleClass="w-full p-inputtext-sm">
+                                </p-calendar>
+                                <label for="">Data de Contrato</label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 formgrid grid mt-5 flex justify-content-center">
+                    <div class="col-5 field">
+                        <button pButton
+                            class="p-button-raised p-button-success p-button-sm"
+                            [style]="{'width':'100%'}"
+                            label="Pesquisar"
+                            (click)="pesquisar()">
+                        </button>
+                    </div>
+                </div>
+            </p-card>
+            <p-card styleClass="w-full border-round-xl mt-5">
+                <taugs-tabela [titulo]="'Lista de Funcionarios'"
+                    [columns]="columns"
+                    [dataSource]="dataSource"></taugs-tabela>
+            </p-card>
+        </div>
+    </form>
+</div>

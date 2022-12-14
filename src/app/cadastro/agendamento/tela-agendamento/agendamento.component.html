@@ -3,8 +3,8 @@
         class="col-12 mt-2 flex justify-content-center">
         <div class="col-11">
             <p-card styleClass="w-full border-round-xl"
-                header="Cadastro de Funcionarios">
-                <p-fieldset [legend]="'Dados do funcionario'"
+                header="Cadastro de Consultas">
+                <p-fieldset [legend]="'Dados da Consulta'"
                     [toggleable]="false">
                     <div class="formgrid mt-3 grid col-12">
                         <div class="col-4 field">
@@ -26,8 +26,54 @@
                                     inputId="dropdown"
                                     formControlName="codigoMedico">
                                 </p-dropdown>
-                                <label for="dropdown">Especialidade</label>
+                                <label for="dropdown">Médico</label>
                             </span>
+                        </div>
+                    </div>
+                    <div class="col-12 formgrid grid mt-2">
+                        <div class="col-4 field">
+                            <span class="p-float-label">
+                                <p-calendar dateFormat="dd/mm/yy"
+                                    formControlName="data"
+                                    styleClass="w-full p-inputtext-sm">
+                                </p-calendar>
+                                <label for="">Data da Consulta *</label>
+                            </span>
+                        </div>
+                        <div class="col-2 field">
+                            <div class="p-inputgroup">
+                                <input type="text"
+                                    class="p-inputttext-sm"
+                                    pInputText
+                                    formControlName="labelHorario"
+                                    [readOnly]="true"
+                                    placeholder="Horario *">
+                                <span class="p-inputgroup-addon cursor-pointer"
+                                    (click)="criarListaHorariosDisponiveis()"
+                                    pStyleClass=".lista-horarios"
+                                    enterClass="hidden"
+                                    enterActiveClass="scalein"
+                                    leaveToClass="hidden"
+                                    leaveActiveClass="fadeout"
+                                    [hideOnOutsideClick]="true"><i class="pi pi-angle-down"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-3 relative field">
+                            <div class="z-5 col-12 field formgrid grid hidden lista-horarios absolute border-1 surface-border shadow-3 surface-card">
+                                <div class="col-12 formgrid grid m-0 p-0 mt-2 mb-2"
+                                    pStyleClass="@parent"
+                                    leaveToClass="hidden"
+                                    leaveActiveClass="fadeout">
+                                    <div *ngFor="let horario of listaHorariosDisponiveis"
+                                        class="col-3 field formgrid grid flex justify-content-center m-0 p-0 mb-1">
+                                        <div class="col-11 field text-center border-1 surface-border m-0 p-0 transition-all transition-duration-500"
+                                            [ngClass]="horario.ocupado?'surface-100 cursor-bloq text-300 border-200':'shadow-1 surface-hover hover:surface-500 cursor-pointer'"
+                                            (click)="escolherHorario(horario)">
+                                            <p class="py-3">{{horario.label}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div [formGroup]="formNome"
@@ -52,7 +98,7 @@
                         </div>
                     </div>
                     <div class="formgrid mt-3 grid col-12">
-                        <div class="col-4 field">
+                        <div class="col-6 field">
                             <span class="p-float-label">
                                 <input type="text"
                                     pInputText
@@ -61,22 +107,13 @@
                                 <label for="">Email *</label>
                             </span>
                         </div>
-                        <div class="col-4 field">
+                        <div class="col-6 field">
                             <span class="p-float-label">
                                 <p-inputMask styleClass="w-full p-inputtext-sm"
                                     formControlName="telefone"
                                     [mask]="'(99) 9999-9999'">
                                 </p-inputMask>
                                 <label for="">Telefone *</label>
-                            </span>
-                        </div>
-                        <div class="col-4 field">
-                            <span class="p-float-label">
-                                <p-inputMask styleClass="w-full p-inputtext-sm"
-                                    formControlName="celular"
-                                    [mask]="'(99) 9 9999-9999'">
-                                </p-inputMask>
-                                <label for="">Celular *</label>
                             </span>
                         </div>
                     </div>
