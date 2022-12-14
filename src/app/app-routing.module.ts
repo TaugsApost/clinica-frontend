@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeModule } from './/home/home.module';
 import { LoginModule } from './/login/login.module';
 import { CadastroEnderecoModule } from './cadastro-endereco/cadastro-endereco.module';
+import { AgendamentoComponent } from './cadastro/agendamento/tela-agendamento/agendamento.component';
 import { CadastroModule } from './cadastro/cadastro.module';
 import { AuthGuard } from './estrutura/auth/auth.guard';
 
@@ -25,6 +26,10 @@ const routes: Routes = [
     path: 'cadastro',
     loadChildren: () => import('./cadastro/cadastro.module').then(x => CadastroModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'cadastro/agendamento',
+    component: AgendamentoComponent
   },
   {
     path: '',

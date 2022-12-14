@@ -27,8 +27,8 @@ export abstract class BaseService<Filter, Entity>{
         return this.http.post<Entity>(this.urlSalvar, entity);
     }
 
-    listar(): Observable<Entity> {
-        return this.http.get<Entity>(this.urlListar);
+    listar(): Observable<Entity[]> {
+        return this.http.get<Entity[]>(this.urlListar);
     }
 
     excluir(id: number): Observable<any> {
