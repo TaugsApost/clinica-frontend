@@ -107,7 +107,7 @@ export class PacienteComponent extends BaseEditComponent<Paciente, Paciente> imp
       this.service.salvar(this.formulario.getRawValue()).subscribe(paciente => {
 
         this.msgService.mostrarMensagemComRetorno('Sucesso', 'Paciente cadastrado com sucesso').then(value => {
-
+          this.router.navigate(['gerenciamento/pacientes']);
         })
       });
     } else {

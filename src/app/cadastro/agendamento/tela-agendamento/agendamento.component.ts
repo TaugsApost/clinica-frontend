@@ -150,7 +150,9 @@ export class AgendamentoComponent extends BaseEditComponent<Agenda, Agenda> impl
     this.beforeSave();
     if (this.formulario.valid) {
       this.service.salvar(this.formulario.getRawValue()).subscribe(agenda => {
-        this.msgService.mostrarMensagemComRetorno('Sucesso', 'Consulta cadastrada com sucesso').then(value => { });
+        this.msgService.mostrarMensagemComRetorno('Sucesso', 'Consulta cadastrada com sucesso').then(value => {
+          this.router.navigate(['gerenciamento/consultas']);
+        });
       })
     }
   }

@@ -9,6 +9,9 @@ import { Usuario } from '../login/shared/user.model';
 })
 export class GaleriaComponent implements OnInit {
 
+  displayModal: boolean = false;
+  srcImagem = '';
+
   constructor(private route: Router) { }
 
   ngOnInit(): void {
@@ -17,6 +20,11 @@ export class GaleriaComponent implements OnInit {
 
   navegarPara(caminho: string) {
     this.route.navigateByUrl('/' + caminho);
+  }
+
+  mostrarImagem(url: string) {
+    this.srcImagem = url;
+    this.displayModal = true;
   }
 
 }

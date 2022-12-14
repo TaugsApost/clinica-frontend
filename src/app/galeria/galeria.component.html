@@ -1,4 +1,4 @@
-<div class="grid flex justify-content-center">
+<!-- <div class="grid flex justify-content-center">
 	<div class="mt-1 ml-1 col- ">
 		<p-card styleClass="border-round-xl">
 			<div class="row justify-content-center"
@@ -62,4 +62,83 @@
 			document.getElementById('exampleModal').classList.remove("custom");
 		}
 	}
-</script>
+</script> -->
+<div class="col-12 mt-2 flex justify-content-center">
+	<div class="col-11">
+		<p-card styleClass="w-full border-round-xl"
+			header="Galeria">
+			<div class="col-12 formgrid grid">
+				<div class="col-3 field">
+					<img class="w-full h-full p-0 m-0 border-double border-3 border-white shadow-1 opacity-70 hover:opacity-100 
+					hover:shadow-6 hover:border-gray-300 cursor-pointer transition-all transition-duration-500 "
+						src=".\assets\imagens\image-1.jpg"
+						alt="First slide"
+						data-target="#carouselExample"
+						data-slide-to="3"
+						(click)="mostrarImagem('.\\assets\\imagens\\image-1.jpg')">
+				</div>
+				<div class="col-3 field">
+					<img class="w-full h-full p-0 m-0 border-double border-3 border-white shadow-1 opacity-70 hover:opacity-100 
+									hover:shadow-6 hover:border-gray-300 cursor-pointer transition-all transition-duration-500 "
+						src=".\assets\imagens\image-2.jpg"
+						alt="First slide"
+						data-target="#carouselExample"
+						data-slide-to="3"
+						(click)="mostrarImagem('.\\assets\\imagens\\image-2.jpg')">
+				</div>
+				<div class="col-3 field">
+					<img class="w-full h-full p-0 border-double m-0 border-3 border-white shadow-1 opacity-70 hover:opacity-100 
+									hover:shadow-6 hover:border-gray-300 cursor-pointer transition-all transition-duration-500 "
+						src=".\assets\imagens\image-3.jpg"
+						alt="First slide"
+						data-target="#carouselExample"
+						data-slide-to="3"
+						(click)="mostrarImagem('.\\assets\\imagens\\image-3.jpg')">
+				</div>
+				<div class="col-3 field">
+					<img class="w-full h-full p-0 border-double m-0 border-3 border-white shadow-1 opacity-70 hover:opacity-100 
+									hover:shadow-6 hover:border-gray-300 cursor-pointer transition-all transition-duration-500 "
+						src=".\assets\imagens\image-4.webp"
+						alt="First slide"
+						data-target="#carouselExample"
+						data-slide-to="3"
+						(click)="mostrarImagem('.\\assets\\imagens\\image-4.webp')">
+				</div>
+			</div>
+			<div class="col-12 formgrid grid">
+				<div class="col-3 field">
+					<img class="w-full h-full p-0 m-0 border-double border-3 border-white shadow-1 opacity-70 hover:opacity-100 
+								hover:shadow-6 hover:border-gray-300 cursor-pointer transition-all transition-duration-500 "
+						src=".\assets\imagens\image-5.jpg"
+						alt="First slide"
+						data-target="#carouselExample"
+						data-slide-to="3"
+						(click)="mostrarImagem('.\\assets\\imagens\\image-5.jpg')">
+				</div>
+				<div class="col-3 field">
+					<img class="w-full h-full p-0 m-0 border-double border-3 border-white shadow-1 opacity-70 hover:opacity-100 
+												hover:shadow-6 hover:border-gray-300 cursor-pointer transition-all transition-duration-500 "
+						src=".\assets\imagens\image-6.jpg"
+						alt="First slide"
+						data-target="#carouselExample"
+						data-slide-to="3"
+						(click)="mostrarImagem('.\\assets\\imagens\\image-6.jpg')">
+				</div>
+			</div>
+		</p-card>
+	</div>
+</div>
+<p-dialog (onHide)="displayModal = false"
+	[style]="{width: '55vw'}"
+	[(visible)]="displayModal"
+	[resizable]="false"
+	[draggable]="false"
+	[modal]="true">
+	<div class="col-12">
+		<img class="w-full h-full p-0 m-0 border-double border-3 shadow-6 border-gray-300 transition-all transition-duration-500"
+			[src]="srcImagem"
+			alt="First slide"
+			data-target="#carouselExample"
+			data-slide-to="3">
+	</div>
+</p-dialog>
