@@ -47,6 +47,7 @@ const routes: Routes = [
     path: 'gerenciamento',
     component: SourceComponent,
     children: [
+      { path: '', component: GerenciarPacientesComponent },
       { path: 'pacientes', component: GerenciarPacientesComponent },
       { path: 'consultas', component: GerenciarConsultasComponent },
       { path: 'enderecos', component: GerenciarEnderecosComponent },

@@ -1,1 +1,67 @@
-<p>gerenciar-consultas works!</p>
+<div class="col-12 mt-2 flex justify-content-center mb-5">
+    <form [formGroup]="formulario"
+        class="col-12 mt-2 flex justify-content-center">
+        <div class="col-11">
+            <p-card styleClass="w-full border-round-xl"
+                header="Consultar Agendamentos">
+                <div class="col-12 formgrid grid mt-3">
+                    <div class="col-12 field">
+                        <span class="p-float-label">
+                            <input pInputText
+                                type="text"
+                                class="p-inputtext-sm"
+                                formControlName="nome">
+                            <label for="">Nome do Paciente</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 formgrid grid mt-3">
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <p-dropdown styleClass="p-inputtext-sm"
+                                placeholder="Medico"
+                                [options]="listaMedicos"
+                                formControlName="codigoMedico">
+                            </p-dropdown>
+                            <label for="">Medico</label>
+                        </span>
+                    </div>
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <p-calendar styleClass="w-full p-inputtext-sm"
+                                [dateFormat]="'dd/mm/yy'"
+                                formControlName="data">
+
+                            </p-calendar>
+                            <label for="">Data do Agendamento</label>
+                        </span>
+                    </div>
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <input type="number"
+                                pInputText
+                                class="p-inputtext-sm"
+                                formControlName="horario">
+                            <label for="">Horario</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 formgrid grid mt-5">
+                    <div class="col-3 field">
+                        <button pButton
+                            class="p-button-raised p-button-success p-button-sm"
+                            [style]="{'width':'100%'}"
+                            label="Pesquisar"
+                            (click)="pesquisar()">
+                        </button>
+                    </div>
+                </div>
+            </p-card>
+            <p-card styleClass="w-full border-round-xl mt-5">
+                <taugs-tabela [titulo]="'Lista de Agendamentos'"
+                    [columns]="columns"
+                    [dataSource]="dataSource"></taugs-tabela>
+            </p-card>
+        </div>
+    </form>
+</div>
