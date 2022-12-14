@@ -1,1 +1,35 @@
-<p>gerenciar-enderecos works!</p>
+<div class="col-12 mt-2 flex justify-content-center mb-5">
+    <form [formGroup]="formulario"
+        class="col-12 mt-2 flex justify-content-center">
+        <div class="col-11">
+            <p-card styleClass="w-full border-round-xl"
+                header="Consultar Endereços">
+                <div class="col-12 formgrid grid mt-3">
+                    <div class="col-4 field">
+                        <span class="p-float-label">
+                            <p-inputMask [mask]="'99999-999'"
+                                styleClass="p-inputtext-sm w-full"
+                                formControlName="cep"></p-inputMask>
+                            <label for="">Cep</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 formgrid grid mt-5">
+                    <div class="col-3 field">
+                        <button pButton
+                            class="p-button-raised p-button-success p-button-sm"
+                            [style]="{'width':'100%'}"
+                            label="Pesquisar"
+                            (click)="pesquisar()">
+                        </button>
+                    </div>
+                </div>
+            </p-card>
+            <p-card styleClass="w-full border-round-xl mt-5">
+                <taugs-tabela [titulo]="'Lista de Endereços'"
+                    [columns]="columns"
+                    [dataSource]="dataSource"></taugs-tabela>
+            </p-card>
+        </div>
+    </form>
+</div>
