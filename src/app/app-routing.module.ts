@@ -6,6 +6,7 @@ import { CadastroEnderecoModule } from './cadastro-endereco/cadastro-endereco.mo
 import { AgendamentoComponent } from './cadastro/agendamento/tela-agendamento/agendamento.component';
 import { CadastroModule } from './cadastro/cadastro.module';
 import { AuthGuard } from './estrutura/auth/auth.guard';
+import { GaleriaModule } from './galeria/galeria.module';
 
 const routes: Routes = [
   {
@@ -28,8 +29,14 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+
     path: 'cadastro/agendamento',
     component: AgendamentoComponent
+  },
+  {
+    path: 'galeria',
+    loadChildren: () => import('./galeria/galeria.module').then(x => GaleriaModule),
+    //canActivate: [AuthGuard]
   },
   {
     path: '',
