@@ -155,7 +155,9 @@ export class FuncionarioComponent extends BaseEditComponent<Pessoa, Pessoa> impl
   private salvarMedico() {
     if (this.formulario.valid) {
       this.medicoService.salvar(this.formulario.getRawValue()).subscribe(medico => {
-        this.msgService.mostrarMensagemComRetorno('Sucesso', 'Médico cadastrado com sucesso').then(value => { });
+        this.msgService.mostrarMensagemComRetorno('Sucesso', 'Médico cadastrado com sucesso').then(value => {
+          this.router.navigate(['gerenciamento/funcionarios']);
+        });
       });
     } else {
       this.msgService.mostrarMensagem('Dados inválido', 'Por Favor preencha todos os campos');
